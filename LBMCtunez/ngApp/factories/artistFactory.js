@@ -1,21 +1,20 @@
 ﻿app.factory("ArtistFactory", function ($http, $q, $routeParams) {
 
     let dbGetAllArtists = () => {
+            let dbData = (response) => response.data;
+            let dbErr = (error) => error;
+            return $http.get('/api/Artists').then(dbData).catch(dbErr);      
+    };
 
-        return $q((resolve, reject) => {
-            $http.get('/api/Artists').then((dbArtists) => {
-                //console.log(dbArtists.data);
-                resolve(dbArtists.data)
-            })
-            .catch((error) => {
-                reject(error);
-            })
-        })
+    let dbGetArtistCatalog = () => {
+
+        console.log('db Gets all the Artists');
 
     };
 
     return {
-        dbGetAllArtists: dbGetAllArtists
+        dbGetAllArtists: dbGetAllArtists,
+        dbGetArtistCatalog: dbGetArtistCatalog
     };
 
 });
