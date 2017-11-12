@@ -5,11 +5,6 @@
 
 /* Custom CSS for Jamz View*/
 
-li p {
-    background-color: black;
-    color: yellow;
-}
-
 .jamz-wrapper {
     background-color: teal;
     display: flex;

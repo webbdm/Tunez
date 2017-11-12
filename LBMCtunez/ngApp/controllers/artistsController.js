@@ -1,15 +1,18 @@
 ﻿app.controller("artistsController", function($scope, $http, $timeout, ArtistFactory) {
 
-    let getAllArtists = () => {
+    ArtistFactory.dbGetAllArtists().then((results) => {
+        $scope.artists = results;
+    }).catch((error) => {
+        console.log('Error in dbGetAllArtists', error);
+    });
 
-        let dbArtists = ArtistFactory.dbGetAllArtists();
-        dbArtists.then((data) => {
-            console.log(data);
-            $scope.artists = data;
-        }).catch((error) =>
-            console.log(error));
+    $scope.getArtistCatalog = (artistId) => {
+        ArtistFactory.dbGetArtistCatalog(artistId).then((results) => {
+            $scope.albums = results;
+            console.log($scope.albums);
+        }).catch((error) => {
+            console.log('Error in dbGetArtistCatalog', error);
+        });
     };
 
-    getAllArtists();
-    
 });

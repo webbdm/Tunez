@@ -23,16 +23,22 @@ namespace LBMCtunez.Controllers
         }
 
         // GET: api/Artists/5
-        [ResponseType(typeof(Artist))]
-        public IHttpActionResult GetArtist(int id)
+        //[ResponseType(typeof(Artist))]
+        public IHttpActionResult GetArtistCatalog(int id)
         {
+            //Album album = db.Albums.Find(id);
+            var albums = db.Albums.Where(a => a.ArtistID == id);
+            //var albums = from a in db.Albums
+            //             where a.ArtistID == id
+            //             select a.AlbumName;
+
             Artist artist = db.Artists.Find(id);
             if (artist == null)
             {
                 return NotFound();
             }
 
-            return Ok(artist);
+            return Ok(albums);
         }
 
         // PUT: api/Artists/5

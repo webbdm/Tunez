@@ -2,11 +2,14 @@
     <div class="jamz_sidebar">
         <h1>Sidebar</h1>
         <ul>
-            <li ng-repeat="artist in artists"><p>{{artist.name}}</p></li>
+            <li ng-click="getArtistCatalog(artist.ArtistID)" ng-repeat="artist in artists">{{artist.ArtistName}}</li>
         </ul>
     </div>
 
     <div class="jamz_main">
         <h1>JAMZ</h1>
+        <ul>
+            <li ng-repeat="album in albums">{{album.AlbumName}}</li>
+        </ul>
     </div>
 </div>
