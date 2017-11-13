@@ -1,27 +1,30 @@
 ﻿app.controller("artistsController", function($scope, $http, $timeout, ArtistFactory) {
 
-    //console.log(ArtistFactory.dbGetAllArtists);
+    $scope.form = false;
+    $scope.newEntry;
 
-    let getAllArtists = () => {
-        ArtistFactory.dbGetAllArtists().then((results) => {
+    ArtistFactory.dbGetAllArtists().then((results) => {
+        $scope.artists = results;
+    }).catch((error) => {
+        console.log('Error in dbGetAllArtists', error);
+    });
 
-            $scope.artists = results;
-            console.log($scope.artists);
-            
-            
-            $timeout(function () {
-                $scope.$apply(() => {
-                    $scope.artists = results;
-                    console.log($scope.artists);
-                })
-                
-            },1000);
-
+    $scope.getArtistCatalog = (artistId) => {
+        ArtistFactory.dbGetArtistCatalog(artistId).then((results) => {
+            $scope.albums = results;
         }).catch((error) => {
-            console.log("Error in getAllArtists", error);
+            console.log('Error in dbGetArtistCatalog', error);
         });
     };
 
-    getAllArtists();
-    
+    $scope.toggleForm = () => {
+        $scope.form = !$scope.form;
+        console.log($scope.form);
+    };
+
+
+    $scope.submitNewEntry = (submittedEntry) => {
+        console.log('form data', submittedEntry);
+    };
+
 });

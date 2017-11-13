@@ -1,12 +1,35 @@
 ﻿<div class="jamz-wrapper">
     <div class="jamz_sidebar">
-        <h1>Sidebar</h1>
-        <ul>
-            <li ng-repeat="artist in artists"><p>{{artist.name}}</p></li>
+        <button ng-click="toggleForm()" class="btn btn-primary">New Artist/Album</button>
+        <ul class="list-group">
+            <li class="list-group-item" ng-click="getArtistCatalog(artist.ArtistID)" ng-repeat="artist in artists">{{artist.ArtistName}}</li>
         </ul>
     </div>
 
     <div class="jamz_main">
-        <h1>JAMZ</h1>
+
+        <div class="jamz_album" ng-if="form == false">
+            <h1>Albums</h1>
+            <h4>by {{selectedArtist.ArtistName}}</h4>
+            <ul>
+                <li ng-repeat="album in albums">{{album.AlbumName}}</li>
+            </ul>
+        </div>
+
+        <div class="jamz_form" ng-if="form == true">
+            <form>
+                <div class="form-group">
+                    <label for="artistName">Artist Name</label>
+                    <input type="text" class="form-control" ng-model="newEntry.ArtistName" placeholder="Artist Name">
+                </div>
+                <div class="form-group">
+                    <label for="albumName">Album Name</label>
+                    <input type="text" class="form-control" ng-model="newEntry.AlbumName" placeholder="Album Name">
+                </div>
+                
+                <button ng-click="submitNewEntry(newEntry)" type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+
     </div>
 </div>
