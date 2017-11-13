@@ -12,6 +12,10 @@
     $scope.getArtistCatalog = (artistId) => {
         ArtistFactory.dbGetArtistCatalog(artistId).then((results) => {
             $scope.albums = results;
+            $scope.albumCount = results.length;
+
+            // Grab the Selected Artist's Name
+            $scope.selectedArtist = results[0].ArtistName;
         }).catch((error) => {
             console.log('Error in dbGetArtistCatalog', error);
         });

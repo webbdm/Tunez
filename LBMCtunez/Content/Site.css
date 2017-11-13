@@ -1,41 +1,113 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: #094C6B;
+    background-color: #04395C;
+    height: 100%;
 }
 
 /* Custom CSS for Jamz View*/
+
 .jamz-nav {
-    background-color: transparent;
+    background-color: #04395C;
     border: none;
+    /*margin-bottom: 50px;*/
 }
-.jamz-wrapper {
-    /*background-color: #094C6B;*/
+
+.nav-brand h2{
+    color: white;
+}
+
+.nav-container {
+    padding: 0 10%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    margin: 20px;
+    color: white;
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+
+.jamz-wrapper {
+    /*background-color: #094C6B;*/
+    margin-top: 4%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
 }
 
 .jamz_sidebar, .jamz_main {
     padding: 1% 5%;
+    flex-grow: 1;
 }
 
 .jamz_sidebar {
-    flex-basis: 1;
+    background-color: #062C46;
+    flex-basis: 30%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     /*border: 2px solid black;*/
     height: auto;
 }
 
+.jamz_artist-list {
+    margin: 10px 0;
+}
+
 .jamz_main {
-    flex-basis: 70%;
+    padding-top: 0;
+    flex-basis: 60%;
+    text-align: center;
 }
 
 .jamz_album {
+    color: white;
 }
 
-.jamz-form {
+.jamz-form form {
+   display: flex;
+   flex-flow: row wrap;
+   align-items: center;
+}
+
+/* Override Bootstrap Panels */
+
+.list-group {
+    text-align: center;
+}
+
+.list-group-item {
+    background-color:transparent;
+    border: none;
+    color: white;
+    border-radius: 0 !important;
+    cursor: pointer;
+}
+
+    .list-group-item:hover {
+        background-color: #075D96;
+    }
+
+    .list-group-item:active {
+        color: black;
+    }
+
+ul li {
+    list-style-type: none;
 }
 
 /* Make links white by default */

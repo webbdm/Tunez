@@ -8,32 +8,24 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar jamz-nav navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("LBMC Jamz", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="jamz-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                @*@Html.ActionLink("LBMC Jamz", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                <h2>LBMC Jamz</h2>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>*@
-                    <li><a href="#!/">Home</a></li>
-                    <li><a href="#!/jamz">Artists</a></li>
-                </ul>
+            <div class="nav-links">
+                <a href="#!/">Home</a>
+                <a href="#!/jamz">Artists</a>
             </div>
         </div>
     </div>
     <div class="" ng-app="LBMCtunez">
         @RenderBody()
         @*<hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - LBMC Jamz</p>
-        </footer>*@
+            <footer>
+                <p>&copy; @DateTime.Now.Year - LBMC Jamz</p>
+            </footer>*@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
