@@ -1,15 +1,23 @@
 ﻿<div class="jamz-wrapper">
     <div class="jamz_sidebar">
-        <h1>Sidebar</h1>
-        <ul>
-            <li ng-click="getArtistCatalog(artist.ArtistID)" ng-repeat="artist in artists">{{artist.ArtistName}}</li>
+        <button class="btn btn-primary">New Artist/Album</button>
+        <ul class="list-group">
+            <li class="list-group-item" ng-click="getArtistCatalog(artist.ArtistID)" ng-repeat="artist in artists">{{artist.ArtistName}}</li>
         </ul>
     </div>
 
     <div class="jamz_main">
-        <h1>JAMZ</h1>
-        <ul>
-            <li ng-repeat="album in albums">{{album.AlbumName}}</li>
-        </ul>
+
+        <div class="jamz_album">
+            <h1>Albums</h1>
+            <h4>by {{selectedArtist.ArtistName}}</h4>
+            <ul>
+                <li ng-repeat="album in albums">{{album.AlbumName}}</li>
+            </ul>
+        </div>
+
+        <div class="jamz_form">
+
+        </div>
     </div>
 </div>

@@ -1,24 +1,50 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #094C6B;
 }
 
 /* Custom CSS for Jamz View*/
-
+.jamz-nav {
+    background-color: transparent;
+    border: none;
+}
 .jamz-wrapper {
-    background-color: teal;
+    /*background-color: #094C6B;*/
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+    height: 100%;
+}
+
+.jamz_sidebar, .jamz_main {
+    padding: 1% 5%;
 }
 
 .jamz_sidebar {
     flex-basis: 1;
+    /*border: 2px solid black;*/
+    height: auto;
 }
 
 .jamz_main {
     flex-basis: 70%;
+}
+
+.jamz_album {
+}
+
+.jamz-form {
+}
+
+/* Make links white by default */
+.navbar-brand{
+    color: white;
+}
+
+ul li a {
+    color: white;
 }
 
 /* Set padding to keep content from hitting the edges */
