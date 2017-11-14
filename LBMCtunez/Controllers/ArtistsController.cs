@@ -73,7 +73,8 @@ namespace LBMCtunez.Controllers
         //}
 
         // POST: api/Artists
-        //[ResponseType(typeof(Artist))]
+        [HttpPost]
+        //[Route("Artists/{custID}")]
         public IHttpActionResult PostEntry(Entry entry)
         {
             if (!ModelState.IsValid)
