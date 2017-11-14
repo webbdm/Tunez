@@ -16,7 +16,11 @@
             $scope.albumCount = results.length;
 
             // Populate Artist with additonal artist data from Spotify API
-            // ArtistFactory.dbGetArtistSpotifyData(artistName).then((results)=>{}).catch((error)=>{});
+            //ArtistFactory.dbGetArtistSpotifyData(artistName).then((results) => {
+            //    console.log(results);
+            //}).catch((error) => {
+            //    console.log('Error getting artist Spotify data');
+            //});
 
             // Grab the Selected Artist's Name
             $scope.selectedArtist = results[0].ArtistName;

@@ -212,6 +212,7 @@
     <Content Include="Global.asax" />
     <Content Include="ngApp\app.js" />
     <Content Include="ngApp\appconfig.js" />
+    <Content Include="ngApp\appConstants.js" />
     <Content Include="ngApp\controllers\artistsController.js" />
     <Content Include="ngApp\controllers\homeController.js" />
     <Content Include="ngApp\factories\artistFactory.js" />

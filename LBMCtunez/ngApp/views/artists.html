@@ -1,6 +1,6 @@
 ﻿<div class="jamz-wrapper">
     <div class="jamz_sidebar">
-        <button ng-if="form == false" ng-click="toggleForm()" class="btn btn-primary">New Artist/Album</button>
+        <p ng-if="form == false" ng-click="toggleForm()" class="new-btn">+ New Artist/Album</p>
         <ul class="list-group jamz_artist-list">
             <li class="list-group-item" ng-click="getArtistCatalog(artist.ArtistID)" ng-repeat="artist in artists">{{artist.ArtistName}}</li>
         </ul>
@@ -9,12 +9,18 @@
     <div class="jamz_main">
 
         <div class="jamz_album" ng-if="form == false">
-            <h1 ng-if="selectedArtist">{{selectedArtist}}</h1>
-            <p ng-if="selectedArtist">{{albumCount}} Albums</p>
-            <h1 ng-if="!selectedArtist">Choose an Artist</h1>
-            <ul>
-                <li ng-repeat="album in albums">{{album.AlbumName}}</li>
-            </ul>
+            <div class="jamz_album-info">
+                <h1 ng-if="selectedArtist">{{selectedArtist}}</h1>
+                <p ng-if="selectedArtist">{{albumCount}} Albums</p>
+                <h1 ng-if="!selectedArtist">Choose an Artist</h1>
+                <ul>
+                    <li ng-repeat="album in albums">{{album.AlbumName}}</li>
+                </ul>
+            </div>
+
+            <div class="jamz_album-image">
+                <img src="http://www.interactivepixel.net/env/jhap2wp/data/default_artwork/music_ph.png" ng-if="selectedArtist" />
+            </div>
         </div>
 
         <div class="jamz_form" ng-if="form == true">
@@ -27,7 +33,7 @@
                     <label for="albumName">Album Name</label>
                     <input type="text" class="form-control" ng-model="newEntry.AlbumName" placeholder="Album Name">
                 </div>
-                
+
                 <button ng-click="postNewEntry(newEntry)" type="submit" class="btn btn-default">Submit</button>
                 <button ng-click="toggleForm()" class="btn">Close</button>
             </form>

@@ -1,17 +1,17 @@
 ﻿body {
-    background-color: #04395C;
+    background-color: #1A273A;
     height: 100%;
 }
 
 /* Custom CSS for Jamz View*/
 
 .jamz-nav {
-    background-color: #04395C;
+    background-color: #172236;
     border: none;
     /*margin-bottom: 50px;*/
 }
 
-.nav-brand h2{
+.nav-brand h2 {
     color: white;
 }
 
@@ -31,37 +31,41 @@
     align-items: center;
 }
 
-.nav-links a {
-    margin: 20px;
-    color: white;
-    text-decoration: none;
-    flex-grow: 1;
-}
+    .nav-links a {
+        margin: 20px;
+        color: white;
+        text-decoration: none;
+        flex-grow: 1;
+    }
 
 
 .jamz-wrapper {
     /*background-color: #094C6B;*/
-    margin-top: 4%;
+    /*margin-top: 4%;*/
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     height: 100%;
 }
 
 .jamz_sidebar, .jamz_main {
-    padding: 1% 5%;
+    padding-top: 15px;
     flex-grow: 1;
 }
 
 .jamz_sidebar {
-    background-color: #062C46;
+    background-color: #263145;
     flex-basis: 30%;
     display: flex;
     flex-flow: column;
     align-items: center;
     /*border: 2px solid black;*/
     height: auto;
+}
+
+.new-btn {
+    color: white;
 }
 
 .jamz_artist-list {
@@ -76,42 +80,69 @@
 
 .jamz_album {
     color: white;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
 }
 
+.jamz_album-info {
+    text-align: left;
+}
+
+.jamz_album-info, .jamz_album-image {
+    flex-grow: 1;
+    margin: 10px;
+}
+
+    .jamz_album-image img {
+        height: 200px;
+        width: 200px;
+    }
+
 .jamz-form form {
-   display: flex;
-   flex-flow: row wrap;
-   align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
 }
 
 /* Override Bootstrap Panels */
 
 .list-group {
     text-align: center;
+    width: 100%;
 }
 
 .list-group-item {
-    background-color:transparent;
+    width: 100%;
+    background-color: transparent;
     border: none;
+    border-top: 1px solid #1A273A;
+    border-bottom: 1px solid #1A273A;
     color: white;
     border-radius: 0 !important;
     cursor: pointer;
 }
 
     .list-group-item:hover {
-        background-color: #075D96;
+        background-color: #313E51;
     }
 
     .list-group-item:active {
         color: black;
     }
 
-ul li {
-    list-style-type: none;
+ul {
+    padding: 0;
 }
 
+    ul li {
+        list-style-type: none;
+    }
+
 /* Make links white by default */
-.navbar-brand{
+.navbar-brand {
     color: white;
 }
 
