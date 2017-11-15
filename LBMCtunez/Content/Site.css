@@ -1,45 +1,171 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: #094C6B;
+﻿html {
+    min-height: 100%
+}
+
+body {
+    background-color: #1A273A;
+    /*background: linear-gradient(top, #4a0c6b 0%,#669966 100%);*/
+    height: 100vh;
+}
+
+* {
+    font-family: 'Barlow', sans-serif;
 }
 
 /* Custom CSS for Jamz View*/
-.jamz-nav {
-    background-color: transparent;
-    border: none;
+.jamz-view {
+    height: 100vh;
 }
+
 .jamz-wrapper {
-    /*background-color: #094C6B;*/
+
+}
+
+.jamz-nav {
+    background-color: #172236;
+    border: none;
+    /*margin-bottom: 50px;*/
+}
+
+.nav-brand h2 {
+    color: white;
+}
+
+.nav-container {
+    padding: 0 10%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+}
+
+.nav-links {
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .nav-links a {
+        margin: 20px;
+        color: white;
+        text-decoration: none;
+        flex-grow: 1;
+    }
+
+
+.jamz-wrapper {
+    /*background-color: #094C6B;*/
+    /*margin-top: 4%;*/
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
     height: 100%;
 }
 
 .jamz_sidebar, .jamz_main {
-    padding: 1% 5%;
+    padding-top: 15px;
+    flex-grow: 1;
 }
 
 .jamz_sidebar {
-    flex-basis: 1;
+    background-color: #263145;
+    flex-basis: 30%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     /*border: 2px solid black;*/
     height: auto;
 }
 
+    .jamz_sidebar ul {
+        text-align: left;
+    }
+
+.new-btn {
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+.jamz_artist-list {
+    margin: 10px 0;
+    
+}
+
 .jamz_main {
-    flex-basis: 70%;
+    padding-top: 0;
+    flex-basis: 60%;
+    text-align: center;
 }
 
 .jamz_album {
+    color: white;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
 }
 
-.jamz-form {
+.jamz_album-info {
+    text-align: left;
 }
+
+.jamz_album-info, .jamz_album-image {
+    flex-grow: 1;
+    margin: 10px;
+}
+
+    .jamz_album-image img {
+        height: 200px;
+        width: 200px;
+    }
+
+.jamz-form form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+/* Override Bootstrap Panels */
+
+.list-group {
+    text-align: center;
+    width: 100%;
+}
+
+.list-group-item {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-top: 1px solid #1A273A;
+    border-bottom: 1px solid #1A273A;
+    color: white;
+    border-radius: 0 !important;
+    cursor: pointer;
+}
+
+    .list-group-item:hover {
+        background-color: #313E51;
+    }
+
+    .list-group-item:active {
+        color: black;
+    }
+
+ul {
+    padding: 0;
+}
+
+    ul li {
+        list-style-type: none;
+    }
 
 /* Make links white by default */
-.navbar-brand{
+.navbar-brand {
     color: white;
 }
 
@@ -66,4 +192,25 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+/* Helpers */
+
+.hide-element {
+    visibility: hidden;
+    cursor: default;
+}
+
+@media screen and (max-width: 425px) {
+    .jamz_sidebar {
+        order: 2;
+    }
+
+    .jamz_main {
+        order: 1;
+    }
+
+    .jamz_album {
+        text-align: center;
+    }
 }

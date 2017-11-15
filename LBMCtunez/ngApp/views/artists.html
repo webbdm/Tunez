@@ -1,33 +1,39 @@
 ﻿<div class="jamz-wrapper">
     <div class="jamz_sidebar">
-        <button ng-click="toggleForm()" class="btn btn-primary">New Artist/Album</button>
-        <ul class="list-group">
-            <li class="list-group-item" ng-click="getArtistCatalog(artist.ArtistID)" ng-repeat="artist in artists">{{artist.ArtistName}}</li>
+        <button ng-disabled="form" ng-click="toggleForm()" class="new-btn">+ New Artist/Album</button>
+        <ul class="list-group jamz_artist-list">
+            <li class="list-group-item" ng-click="getArtistCatalog(artist.ArtistID); falseForm()" ng-repeat="artist in artists">{{artist.ArtistName}}</li>
         </ul>
     </div>
 
     <div class="jamz_main">
 
         <div class="jamz_album" ng-if="form == false">
-            <h1>Albums</h1>
-            <h4>by {{selectedArtist.ArtistName}}</h4>
-            <ul>
-                <li ng-repeat="album in albums">{{album.AlbumName}}</li>
-            </ul>
+            <div class="jamz_album-info">
+                <h1 ng-if="selectedArtist">{{selectedArtist}}</h1>
+                <p ng-if="selectedArtist">{{albumCount}} Albums</p>
+                <h1 ng-if="!selectedArtist">Choose an Artist</h1>
+                <ul>
+                    <li ng-repeat="album in albums">{{album.AlbumName}}</li>
+                </ul>
+            </div>
+
+            <div class="jamz_album-image">
+                <img src="http://www.interactivepixel.net/env/jhap2wp/data/default_artwork/music_ph.png" ng-if="selectedArtist" />
+            </div>
         </div>
 
         <div class="jamz_form" ng-if="form == true">
             <form>
                 <div class="form-group">
-                    <label for="artistName">Artist Name</label>
-                    <input type="text" class="form-control" ng-model="newEntry.ArtistName" placeholder="Artist Name">
+                    <input type="text" class="" ng-model="newEntry.ArtistName" placeholder="Artist Name">
                 </div>
                 <div class="form-group">
-                    <label for="albumName">Album Name</label>
-                    <input type="text" class="form-control" ng-model="newEntry.AlbumName" placeholder="Album Name">
+                    <input type="text" class="" ng-model="newEntry.AlbumName" placeholder="Album Name">
                 </div>
-                
-                <button ng-click="submitNewEntry(newEntry)" type="submit" class="btn btn-default">Submit</button>
+
+                <button ng-click="postNewEntry(newEntry); toggleForm()" type="submit" class="btn btn-default">Submit</button>
+                <button ng-click="toggleForm()" class="btn">Close</button>
             </form>
         </div>
 

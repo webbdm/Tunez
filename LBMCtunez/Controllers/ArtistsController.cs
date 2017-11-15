@@ -9,12 +9,15 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using LBMCtunez.DataModels;
+using LBMCtunez.ViewModels;
 
 namespace LBMCtunez.Controllers
 {
     public class ArtistsController : ApiController
     {
         private AppDbContext db = new AppDbContext();
+        //private ISpotifyGrabber grabber = new SpotifyGrabber();
+
 
         // GET: api/Artists
         public IQueryable<Artist> GetArtists()
@@ -23,14 +26,9 @@ namespace LBMCtunez.Controllers
         }
 
         // GET: api/Artists/5
-        //[ResponseType(typeof(Artist))]
         public IHttpActionResult GetArtistCatalog(int id)
         {
-            //Album album = db.Albums.Find(id);
             var albums = db.Albums.Where(a => a.ArtistID == id);
-            //var albums = from a in db.Albums
-            //             where a.ArtistID == id
-            //             select a.AlbumName;
 
             Artist artist = db.Artists.Find(id);
             if (artist == null)
@@ -41,54 +39,69 @@ namespace LBMCtunez.Controllers
             return Ok(albums);
         }
 
-        // PUT: api/Artists/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutArtist(int id, Artist artist)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/Artists/5
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutArtist(int id, Artist artist)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != artist.ArtistID)
-            {
-                return BadRequest();
-            }
+        //    if (id != artist.ArtistID)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(artist).State = EntityState.Modified;
+        //    db.Entry(artist).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ArtistExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!ArtistExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
         // POST: api/Artists
-        [ResponseType(typeof(Artist))]
-        public IHttpActionResult PostArtist(Artist artist)
+        [HttpPost]
+        //[Route("Artists/{custID}")]
+        public IHttpActionResult PostEntry(Entry entry)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Artists.Add(artist);
+            Artist artistEntry = new Artist
+            {
+                ArtistName = entry.ArtistName
+            };
+
+            Album albumEntry = new Album
+            {
+                AlbumName = entry.AlbumName,
+                ArtistName = entry.ArtistName
+            };
+
+            db.Artists.Add(artistEntry);
+            db.SaveChanges();
+            albumEntry.ArtistID = artistEntry.ArtistID;
+            db.Albums.Add(albumEntry);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = artist.ArtistID }, artist);
+            return CreatedAtRoute("DefaultApi", new { id = artistEntry.ArtistID }, entry);
         }
 
         // DELETE: api/Artists/5
