@@ -4,11 +4,13 @@
     $scope.newEntry;
 
     // Get all artists on page/view load
-    ArtistFactory.dbGetAllArtists().then((results) => {
-        $scope.artists = results;
-    }).catch((error) => {
-        console.log('Error in dbGetAllArtists', error);
-    });
+    let getArtists = () => {
+        ArtistFactory.dbGetAllArtists().then((results) => {
+            $scope.artists = results;
+        }).catch((error) => {
+            console.log('Error in dbGetAllArtists', error);
+        });
+    };
 
     $scope.getArtistCatalog = (artistId) => {
         ArtistFactory.dbGetArtistCatalog(artistId).then((results) => {
@@ -34,14 +36,21 @@
         console.log($scope.form);
     };
 
+    $scope.falseForm = () => {
+        $scope.form = false;
+    };
+
 
     $scope.postNewEntry = (entry) => {
         console.log('form data', entry);
         ArtistFactory.dbPostNewEntry(entry).then((message) => {
             console.log(message);
+            getArtists();
         }).catch((error) => {
             console.log('Error posting entry',error);
         });
     };
+
+    getArtists();
 
 });

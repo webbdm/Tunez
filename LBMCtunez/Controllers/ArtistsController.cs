@@ -16,6 +16,8 @@ namespace LBMCtunez.Controllers
     public class ArtistsController : ApiController
     {
         private AppDbContext db = new AppDbContext();
+        //private ISpotifyGrabber grabber = new SpotifyGrabber();
+
 
         // GET: api/Artists
         public IQueryable<Artist> GetArtists()

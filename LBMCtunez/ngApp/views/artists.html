@@ -1,8 +1,8 @@
 ﻿<div class="jamz-wrapper">
     <div class="jamz_sidebar">
-        <p ng-if="form == false" ng-click="toggleForm()" class="new-btn">+ New Artist/Album</p>
+        <button ng-disabled="form" ng-click="toggleForm()" class="new-btn">+ New Artist/Album</button>
         <ul class="list-group jamz_artist-list">
-            <li class="list-group-item" ng-click="getArtistCatalog(artist.ArtistID)" ng-repeat="artist in artists">{{artist.ArtistName}}</li>
+            <li class="list-group-item" ng-click="getArtistCatalog(artist.ArtistID); falseForm()" ng-repeat="artist in artists">{{artist.ArtistName}}</li>
         </ul>
     </div>
 
@@ -26,15 +26,13 @@
         <div class="jamz_form" ng-if="form == true">
             <form>
                 <div class="form-group">
-                    <label for="artistName">Artist Name</label>
-                    <input type="text" class="form-control" ng-model="newEntry.ArtistName" placeholder="Artist Name">
+                    <input type="text" class="" ng-model="newEntry.ArtistName" placeholder="Artist Name">
                 </div>
                 <div class="form-group">
-                    <label for="albumName">Album Name</label>
-                    <input type="text" class="form-control" ng-model="newEntry.AlbumName" placeholder="Album Name">
+                    <input type="text" class="" ng-model="newEntry.AlbumName" placeholder="Album Name">
                 </div>
 
-                <button ng-click="postNewEntry(newEntry)" type="submit" class="btn btn-default">Submit</button>
+                <button ng-click="postNewEntry(newEntry); toggleForm()" type="submit" class="btn btn-default">Submit</button>
                 <button ng-click="toggleForm()" class="btn">Close</button>
             </form>
         </div>
