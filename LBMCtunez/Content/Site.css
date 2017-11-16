@@ -34,6 +34,12 @@ body {
     padding: 10% 50% 10% 10%;
 }
 
+    .home_wrapper-info a {
+        margin: 0 30px;
+        color: white;
+        text-decoration: none;
+    }
+
 /* Custom CSS for Jamz View*/
 .jamz-view {
     height: 100vh;
@@ -219,6 +225,14 @@ textarea {
 
 /* Helpers */
 
+   /* ng-class Helpers*/
+
+.clear-nav {
+    display: none;
+    background-color: transparent;
+    /*border: 2px solid yellow;*/
+}
+
 .hide-element {
     visibility: hidden;
     cursor: default;
@@ -229,6 +243,17 @@ textarea {
 }
 
 @media screen and (max-width: 425px) {
+
+    .home_wrapper-left {
+        background-color: #172236;
+        min-height: 100vh;
+        width: 100%;
+        opacity: .70;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+
     .jamz_sidebar {
         order: 2;
     }

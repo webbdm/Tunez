@@ -1,7 +1,9 @@
-﻿app.controller("artistsController", function ($scope, $http, $timeout, ArtistFactory) {
+﻿app.controller("artistsController", function ($scope, $http, $timeout, $rootScope, ArtistFactory) {
 
     $scope.form = false;
     $scope.newEntry;
+    $rootScope.homeNav = false;
+    console.log($rootScope.homeNav);
 
     // Get all artists on page/view load
     let getArtists = () => {
