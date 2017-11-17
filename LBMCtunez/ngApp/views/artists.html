@@ -8,19 +8,24 @@
 
     <div class="jamz_main">
 
-        <div class="jamz_album" ng-if="form == false">
+        <div class="jamz_album" ng-style="{'background-image':'linear-gradient(to top, black, rgba(12, 12, 13, 0)),url(https://i.scdn.co/image/fcb6ff3b92a1412e225c69277744e33105af963f)'}" ng-if="form == false">
             <div class="jamz_album-info">
-                <h1 ng-if="selectedArtist">{{selectedArtist}}</h1>
+                <h1 ng-if="selectedArtist">{{selectedArtist.ArtistName}}</h1>
                 <p ng-if="selectedArtist">{{albumCount}} Albums</p>
-                <h1 ng-if="!selectedArtist">Choose an Artist</h1>
-                <ul>
-                    <li ng-repeat="album in albums">{{album.AlbumName}}</li>
-                </ul>
             </div>
 
-            <div class="jamz_album-image">
+            
+
+
+            <!--<div class="jamz_album-image">
                 <img src="http://www.interactivepixel.net/env/jhap2wp/data/default_artwork/music_ph.png" ng-if="selectedArtist" />
-            </div>
+            </div>-->
+        </div>
+
+        <div class="jamz_album-list" ng-if="form == false">
+            <ul>
+                <li ng-repeat="album in albums">{{album.AlbumName}}</li>
+            </ul>
         </div>
 
         <div class="jamz_form" ng-if="form == true">

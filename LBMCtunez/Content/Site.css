@@ -3,8 +3,8 @@
 }
 
 body {
-    background-color: #1A273A;
-    /*background: linear-gradient(top, #4a0c6b 0%,#669966 100%);*/
+    /*background-color: #1A273A;*/
+    background-image: linear-gradient(to top right,#263145,#172236);
     height: 100vh;
 }
 
@@ -21,23 +21,23 @@ body {
 }
 
 .home_wrapper-left {
-    background-color: #172236;
+    background-color: rgba(23, 34, 54, 0.8);
     min-height: 100vh;
     width: 70%;
-    opacity: .80;
     -webkit-clip-path: polygon(0 0, 66% 0, 44% 100%, 0% 100%);
     clip-path: polygon(0 0, 66% 0, 44% 100%, 0% 100%);
 }
 
 .home_wrapper-info {
     text-align: center;
-    padding: 10% 50% 10% 10%;
+    padding: 5% 50% 10% 10%;
 }
 
     .home_wrapper-info a {
         margin: 0 30px;
         color: white;
         text-decoration: none;
+        font-size: 20px;
     }
 
 /* Custom CSS for Jamz View*/
@@ -97,6 +97,7 @@ body {
     padding-top: 15px;
     flex-grow: 1;
     min-height: 100%;
+    min-width: 200px;
 }
 
 .jamz_sidebar {
@@ -135,11 +136,16 @@ body {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 40px;
+    background-size: cover;
+    position: relative;
+    min-height: 300px;
 }
 
 .jamz_album-info {
     text-align: left;
+    position:absolute;
+    bottom: 0;
+    padding: 20px;
 }
 
 .jamz_album-info, .jamz_album-image {
@@ -151,6 +157,10 @@ body {
         height: 200px;
         width: 200px;
     }
+
+.jamz_album-list {
+    color: white;
+}
 
 .jamz-form form {
     display: flex;
@@ -251,6 +261,14 @@ textarea {
         opacity: .70;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .home_wrapper-info {
+        padding: 5% 5% 5% 5%;
+    }
+
+    .jamz-wrapper {
+        /*justify-content: space-around;*/
     }
 
 
