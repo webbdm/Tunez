@@ -46,7 +46,6 @@ body {
 }
 
 .jamz-wrapper {
-
 }
 
 .jamz-nav {
@@ -121,7 +120,6 @@ body {
 
 .jamz_artist-list {
     margin: 10px 0;
-    
 }
 
 .jamz_main {
@@ -143,7 +141,7 @@ body {
 
 .jamz_album-info {
     text-align: left;
-    position:absolute;
+    position: absolute;
     bottom: 0;
     padding: 20px;
 }
@@ -160,7 +158,20 @@ body {
 
 .jamz_album-list {
     color: white;
+    text-align: left;
+    min-height: 100%;
 }
+
+    .jamz_album-list li {
+        border-top: 1px solid #313E51;
+        border-bottom: 1px solid #313E51;
+        padding: 5px 20px;
+        cursor: pointer;
+    }
+
+        .jamz_album-list li:focus {
+            background-color: red;
+        }
 
 .jamz-form form {
     display: flex;
@@ -235,7 +246,7 @@ textarea {
 
 /* Helpers */
 
-   /* ng-class Helpers*/
+/* ng-class Helpers*/
 
 .clear-nav {
     display: none;
