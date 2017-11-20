@@ -1,12 +1,18 @@
-﻿app.controller("artistsController", function ($scope, $http, $timeout, ArtistFactory) {
+﻿app.controller("artistsController", function ($scope, $http, $timeout, $rootScope, ArtistFactory) {
 
     $scope.form = false;
     $scope.newEntry;
+    $rootScope.homeNav = false;
+    console.log($rootScope.homeNav);
 
     // Get all artists on page/view load
     let getArtists = () => {
         ArtistFactory.dbGetAllArtists().then((results) => {
             $scope.artists = results;
+
+            // Set an inital artist
+            $scope.selectedArtist = results[0];
+            $scope.getArtistCatalog(results[0].ArtistID);
         }).catch((error) => {
             console.log('Error in dbGetAllArtists', error);
         });
@@ -24,8 +30,6 @@
             //    console.log('Error getting artist Spotify data');
             //});
 
-            // Grab the Selected Artist's Name
-            $scope.selectedArtist = results[0].ArtistName;
         }).catch((error) => {
             console.log('Error in dbGetArtistCatalog', error);
         });
@@ -33,7 +37,6 @@
 
     $scope.toggleForm = () => {
         $scope.form = !$scope.form;
-        console.log($scope.form);
     };
 
     $scope.falseForm = () => {
@@ -42,9 +45,7 @@
 
 
     $scope.postNewEntry = (entry) => {
-        console.log('form data', entry);
         ArtistFactory.dbPostNewEntry(entry).then((message) => {
-            console.log(message);
             getArtists();
         }).catch((error) => {
             console.log('Error posting entry',error);

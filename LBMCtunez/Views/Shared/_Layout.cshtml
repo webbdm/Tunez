@@ -9,19 +9,32 @@
     <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
 </head>
 <body>
-    <div class="jamz-nav">
+    @*<div class="jamz-nav">
         <div class="nav-container">
             <div class="nav-brand">
-                @*@Html.ActionLink("LBMC Jamz", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-                <h2>LBMC Jamz</h2>
+               
+                <h2>Jamz</h2>
             </div>
             <div class="nav-links">
                 <a href="#!/">Home</a>
                 <a href="#!/jamz">Artists</a>
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="jamz-app" ng-app="LBMCtunez">
+        @*<div ng-include="/ngApp/Views/navbar.html"></div>*@
+        <div ng-class="homeNav ? 'clear-nav' : 'jamz-nav'" class="" ng-controller="navController">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h2>LBMC Jamz</h2>
+                </div>
+                <div class="nav-links">
+                    <a href="#!/">Home</a>
+                    <a href="#!/jamz">Artists</a>
+                </div>
+            </div>
+        </div>
+
         @RenderBody()
         @*<hr />
             <footer>
