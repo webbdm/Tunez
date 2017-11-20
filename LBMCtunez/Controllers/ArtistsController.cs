@@ -39,40 +39,7 @@ namespace LBMCtunez.Controllers
             return Ok(albums);
         }
 
-        //// PUT: api/Artists/5
-        //[ResponseType(typeof(void))]
-        //public IHttpActionResult PutArtist(int id, Artist artist)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    if (id != artist.ArtistID)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    db.Entry(artist).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        db.SaveChanges();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!ArtistExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return StatusCode(HttpStatusCode.NoContent);
-        //}
+        
 
         // POST: api/Artists
         [HttpPost]

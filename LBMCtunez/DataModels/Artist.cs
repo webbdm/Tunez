@@ -11,5 +11,6 @@ namespace LBMCtunez.DataModels
         [Key]
         public int ArtistID { get; set; }
         public string ArtistName { get; set; }
+        public string ImgUrl { get; set; }
     }
 }

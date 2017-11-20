@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201711130445406_tunez2.Designer.cs">
       <DependentUpon>201711130445406_tunez2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711200131396_tunez3.cs" />
+    <Compile Include="Migrations\201711200131396_tunez3.Designer.cs">
+      <DependentUpon>201711200131396_tunez3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Entry.cs" />
@@ -215,9 +219,11 @@
     <Content Include="ngApp\appConstants.js" />
     <Content Include="ngApp\controllers\artistsController.js" />
     <Content Include="ngApp\controllers\homeController.js" />
+    <Content Include="ngApp\controllers\navController.js" />
     <Content Include="ngApp\factories\artistFactory.js" />
     <Content Include="ngApp\views\artists.html" />
     <Content Include="ngApp\views\home.html" />
+    <Content Include="ngApp\views\navbar.html" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711130445406_tunez2.resx">
       <DependentUpon>201711130445406_tunez2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711200131396_tunez3.resx">
+      <DependentUpon>201711200131396_tunez3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
