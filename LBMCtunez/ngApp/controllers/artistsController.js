@@ -10,6 +10,8 @@
         ArtistFactory.dbGetAllArtists().then((results) => {
             $scope.artists = results;
 
+            console.log(results);
+
             // Set an inital artist
             $scope.selectedArtist = results[0];
             $scope.getArtistCatalog(results[0].ArtistID);

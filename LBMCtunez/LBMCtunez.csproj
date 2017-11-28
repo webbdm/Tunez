@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201711130445406_tunez2.Designer.cs">
       <DependentUpon>201711130445406_tunez2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711280310526_tunez-z.cs" />
+    <Compile Include="Migrations\201711280310526_tunez-z.Designer.cs">
+      <DependentUpon>201711280310526_tunez-z.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Entry.cs" />
@@ -296,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711130445406_tunez2.resx">
       <DependentUpon>201711130445406_tunez2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711280310526_tunez-z.resx">
+      <DependentUpon>201711280310526_tunez-z.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
